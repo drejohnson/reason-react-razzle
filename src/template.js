@@ -11,8 +11,10 @@ const template = ({ helmet, assets, chunks, initialState }) => [
       <body>
         <div id="root">`,
   `</div>
-        ${process.env.NODE_ENV === 'production' ? `<script src="${assets.client.js}"></script>` : `<script src="${assets.client.js}" crossorigin></script>`}
-        ${chunks
+      <script>window.__APOLLO_STATE__=${JSON.stringify(initialState).replace(/</g, '\\u003c')}</script>
+      ${process.env.NODE_ENV === 'production' ? `<script src="${assets.manifest.js}"></script>` : `<script src="${assets.manifest.js}" crossorigin></script>`}
+      ${process.env.NODE_ENV === 'production' ? `<script src="${assets.client.js}"></script>` : `<script src="${assets.client.js}" crossorigin></script>`}
+      ${chunks
     .map(
       chunk =>
         (process.env.NODE_ENV === 'production'
@@ -20,8 +22,6 @@ const template = ({ helmet, assets, chunks, initialState }) => [
           : `<script src="http://${process.env.HOST}:${process.env.PORT + 1}/${chunk.file}"></script>`)
     )
     .join('\n')}
-        <script>window.main();</script>
-        <script>window.__APOLLO_STATE__=${JSON.stringify(initialState).replace(/</g, '\\u003c')}</script>
       </body>
     </html>`
 ]

@@ -42,7 +42,7 @@ server
     const chunks = bundles.filter(bundle => bundle.file.endsWith('.js'))
 
     getDataFromTree(app)
-    const [header, footer] = template({
+    const [head, tail] = template({
       helmet: helmetContext.helmet,
       assets: assets,
       chunks: chunks,
@@ -50,7 +50,7 @@ server
     })
 
     res.status(200)
-    res.write(header)
+    res.write(head)
     renderToNodeStream(app)
       .pipe(
         through(
@@ -58,7 +58,7 @@ server
             this.queue(data)
           },
           function end () {
-            this.queue(footer)
+            this.queue(tail)
             this.queue(null)
           }
         )
