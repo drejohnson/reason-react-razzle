@@ -4,12 +4,10 @@ import { Capture } from 'react-loadable'
 import { getBundles } from 'react-loadable/webpack'
 import express from 'express'
 import { renderToString, renderToNodeStream } from 'react-dom/server'
-import { StaticRouter } from 'react-router'
-import { renderRoutes } from 'react-router-config'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import Helmet, { HelmetProvider } from 'react-helmet-async'
+import App from './components/App.bs'
 import template from './template'
-import routes from './routes'
 import stats from '../build/react-loadable.json'
 
 import { initApolloClient } from './modules/Client.bs'
@@ -29,9 +27,7 @@ server
       <Capture report={moduleName => modules.push(moduleName)}>
         <HelmetProvider context={helmetContext}>
           <ApolloProvider client={client}>
-            <StaticRouter location={req.url} context={context}>
-              {renderRoutes(routes)}
-            </StaticRouter>
+            <App initialUrl={req.url.substring(1)} />
           </ApolloProvider>
         </HelmetProvider>
       </Capture>
@@ -42,6 +38,7 @@ server
     const chunks = bundles.filter(bundle => bundle.file.endsWith('.js'))
 
     getDataFromTree(app)
+
     const [head, tail] = template({
       helmet: helmetContext.helmet,
       assets: assets,

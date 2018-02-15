@@ -1,4 +1,4 @@
-# ReasonReact + React Router + Apollo + React Loadable + SSR
+# ReasonReact + Razzle + Apollo + React Loadable
 
 > A basic starting point for using server-side rendering with ReasonReact via [Razzle](https://github.com/jaredpalmer/razzle).
 
@@ -8,8 +8,6 @@
 
 * [x] [ReasonReact](https://reasonml.github.io/reason-react/)
 * [x] [Razzle](https://github.com/jaredpalmer/razzle) for easy server-side rendering
-* [x] [Webpack - v4.0.0-beta*](https://webpack.js.org/)
-* [x] [React Router](https://reacttraining.com/react-router/)
 * [x] [Reason-Apollo](https://github.com/apollographql/reason-apollo)
 * [x] [React Helmet Async](https://github.com/NYTimes/react-helmet-async) bindings
 
