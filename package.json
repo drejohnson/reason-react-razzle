@@ -11,30 +11,29 @@
   },
   "dependencies": {
     "apollo-client-preset": "^1.0.8",
-    "apollo-link-context": "^1.0.3",
-    "apollo-link-error": "^1.0.3",
+    "apollo-link-context": "^1.0.5",
+    "apollo-link-error": "^1.0.5",
     "express": "^4.16.2",
-    "graphql": "^0.12.3",
+    "graphql": "^0.13.0",
     "isomorphic-unfetch": "^2.0.0",
-    "raf": "^3.4.0",
     "react": "^16.2.0",
     "react-apollo": "^2.0.4",
     "react-dom": "^16.2.0",
-    "react-helmet": "^5.2.0",
     "react-helmet-async": "^0.0.5",
     "react-loadable": "^5.3.1",
     "react-router-config": "^1.0.0-beta.4",
     "react-router-dom": "^4.2.2",
-    "reason-apollo": "^0.6.13",
+    "reason-apollo": "^0.6.17",
     "reason-react": ">=0.3.2",
-    "through": "^2.3.8"
+    "through": "^2.3.8",
+    "vrroom": "glennsl/vrroom"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
-    "bs-platform": "^2.1.0",
-    "bs-webapi": "^0.8.2",
+    "bs-platform": "^2.2.1",
+    "bs-webapi": "^0.8.3",
     "concurrently": "^3.5.1",
-    "graphql_ppx": "^0.0.1",
-    "razzle": "^0.8.11"
+    "graphql_ppx": "^0.2.0",
+    "razzle": "^0.8.12"
   }
 }
