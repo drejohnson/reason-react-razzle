@@ -1,3 +1,4 @@
+import through from 'through'
 import React from 'react'
 import { Capture } from 'react-loadable'
 import { getBundles } from 'react-loadable/webpack'
@@ -7,12 +8,11 @@ import { StaticRouter } from 'react-router'
 import { renderRoutes } from 'react-router-config'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import Helmet, { HelmetProvider } from 'react-helmet-async'
-import through from 'through'
 import template from './template'
 import routes from './routes'
 import stats from '../build/react-loadable.json'
 
-import { initApollo } from './modules/Client.bs'
+import { initApolloClient } from './modules/Client.bs'
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST)
 
@@ -20,8 +20,8 @@ const server = express()
 server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
-  .get('/*', (req, res) => {
-    const client = initApollo()
+  .get('*', (req, res) => {
+    const client = initApolloClient
     const helmetContext = {}
     const context = {}
     const modules = []

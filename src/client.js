@@ -7,9 +7,9 @@ import { renderRoutes } from 'react-router-config'
 import Loadable from 'react-loadable'
 import routes from './routes'
 
-import { initApollo } from './modules/Client.bs'
+import { initApolloClient } from './modules/Client.bs'
 
-const client = initApollo()
+const client = initApolloClient
 Loadable.preloadReady().then(() => {
   hydrate(
     <HelmetProvider>

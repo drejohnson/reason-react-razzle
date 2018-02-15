@@ -1,3 +1,5 @@
+open Utils;
+
 module AllEpisodesQuery = [%graphql
   {|
   query allEpisodes {
@@ -22,7 +24,7 @@ let make = (_children) => {
            (response, parse) =>
              switch response {
              | Loading => <Loading />
-             | Failed(error) => <div> (Utils.text(error)) </div>
+             | Failed(error) => <div> (error |> text) </div>
              | Loaded(result) =>
                let episodes = parse(result)##allEpisodes |> Array.to_list;
                <div>

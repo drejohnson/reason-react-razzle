@@ -1,3 +1,5 @@
+open Utils;
+
 let component = ReasonReact.statelessComponent("Layout");
 
 let make = (children) => {
@@ -10,7 +12,7 @@ let make = (children) => {
         <meta name="theme-color" content="#000000" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="shortcut icon" href="/favicon.ico" />
-        <title> (Utils.text("ReasonReact Starter")) </title>
+        <title> ("ReasonReact Starter" |> text) </title>
         <meta
           name="description"
           content="Reason lets you write simple, fast and quality type safe code while leveraging both the JavaScript & OCaml ecosystems."
